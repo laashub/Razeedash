@@ -61,6 +61,13 @@ Template.configureLoginServiceDialogForGithub.onRendered(function() {
         }
     });
 });
+Template.configureLoginServiceDialogForIbmcloud.onRendered(function() {
+    this.autorun(()=>{
+        if(Template.instance().view.isRendered){
+            animateServiceDialog();
+        }
+    });
+});
 // This is used in the customAtForm template to determine whether or not 
 // to show the email/password login form
 Template.atForm.helpers({
@@ -81,6 +88,10 @@ const serviceData = {
     'bitbucket': {
         'img': 'img/bitbucket.svg',
         'label': 'Bitbucket'
+    },
+    'ibmcloud': {
+        'img': 'img/cloud.svg',
+        'label': 'IBM Cloud'
     }
 };
 
